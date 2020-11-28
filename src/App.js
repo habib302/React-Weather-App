@@ -16,9 +16,12 @@ function App() {
   useEffect(() => {
     Axios
       .get(`${API.BASE}/weather?q=${city}&appid=${API.KEY}`)
+      // .then(res => res.json())
       .then(res =>{
         console.log(res);
         setData(res.data);
+        // setCity('');
+        console.log(data);
       })
       .catch(err =>{
         console.log(err);
@@ -28,7 +31,7 @@ function App() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-12">
+        <div className="col-md-12">
           <div className="mainTitle">
             <br></br>
             <h1>React Weather App Using only Hooks</h1>
@@ -38,8 +41,8 @@ function App() {
         </div>
       </div>
       <div className="row">
-        <div className="col-lg-12">
-          <div className="search-box">
+        <div className="search-box">
+          <div className="">
             <br></br>
             <input 
               type="text"
@@ -50,16 +53,38 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="col-md-4">{data.timezone}</div>
-          <div className="col-md-4"></div>
-          <div className="col-md-4"></div>
+      <div className="card">
+      {(typeof data.main != "undefined") ? (
+        <div className="row">
+        
+          <div className="col-md-12">
+            <div className="col-md-4">
+              <h3>City Name</h3>
+              <p>{data.name}</p>
+            </div>
+            <div className="col-md-4">
+              <h3>Temparature</h3>
+              <p>{Math.round(data.main.temp)} </p>
+            </div>
+            <div className="col-md-4">
+              <h3>Feels Like</h3>
+              <p>{Math.round(data.main.feels_like)} </p>
+            </div>
 
-          <div className="col-md-4"></div>
-          <div className="col-md-4"></div>
-          <div className="col-md-4"></div>
+            <div className="col-md-4">
+              <h3>Humidity(%)</h3>
+              <p>{data.main.humidity}</p>
+            </div>
+            
+
+            <div className="col-md-4">
+              <h3></h3>
+              <p>{}</p>
+            </div>
+          </div>
+      
         </div>
+      ) : ('')}
       </div>
     </div>
   );
