@@ -3,15 +3,34 @@ import React,{useState,useEffect} from 'react'
 import { Container } from 'react-bootstrap';
 import Axios from 'axios';
 
+//material UI import 
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import ss1 from './img/Screenshot_1.jpg';
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 350,
+  },
+});
 
 const API = {
   KEY: "a688d4e186c7e13375ae2f8b44a585ea",
   BASE: "https://api.openweathermap.org/data/2.5/"
 }
 
+
 function App() {
   const [data, setData] = useState({})
   const [city, setCity] = useState('')
+
+  //material UI styles
+  const classes = useStyles();
 
   useEffect(() => {
     Axios
@@ -50,16 +69,67 @@ function App() {
               <div className="card-body">
                 <div className="row">
                   <div className="col-md-4">
-                    <h3>City Name</h3>
-                    <p>{data.name}</p>
+                    <Card className={classes.root}>
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          alt="Contemplative Reptile"
+                          height="150"
+                          image={ss1}
+                          title="Contemplative Reptile"
+                        />
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h1">
+                            City Name
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            {data.name}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
                   </div>
                   <div className="col-md-4">
-                    <h3>Temparature</h3>
-                    <p>{Math.round(data.main.temp)} &#8451;</p>
+                      <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              Temparature
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {Math.round(data.main.temp)} &#8451;
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
                   <div className="col-md-4">
-                    <h3>Humidity</h3>
-                    <p>{data.main.humidity} %</p>
+                      <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              Humidity
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {data.main.humidity} %
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
                 </div>
               </div>
@@ -69,52 +139,143 @@ function App() {
               <div className="card-body">
                 <div className="row">
                   <div className="col-md-4">
-                    <h3>Country code</h3>
-                    <p>{data.sys.country}</p>
+                      <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              Country code
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {data.sys.country}
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
                   <div className="col-md-4">
-                    <h3>Sunrise Time</h3>
-                    <p>{data.sys.sunrise} UTC</p>
+                      <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              Sunrise Time
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {data.sys.sunrise} UTC
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
                   <div className="col-md-4">
-                    <h3>Sunset Time</h3>
-                    <p>{data.sys.sunset} UTC</p>
+                    <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              Sunset Time
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {data.sys.sunset} UTC
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
                 </div>
               </div>
             ) : ('')}
 
 
-            {(typeof data.wind != "undefined") ? (
+            {( (typeof data.wind != "undefined") && (typeof data.coord != "undefined") ) ? (
               <div className="card-body">
                 <div className="row">
                   <div className="col-md-4">
-                    <h3>Wind Speed</h3>
-                    <p>{data.wind.speed} meter/sec</p>
+                      <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              Wind Speed
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {data.wind.speed} meter/sec
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
-                  <div className="col-md-4">
-                    <h3>Wind Direction</h3>
-                    <p>{data.wind.deg}</p>
-                  </div>
-                  <div className="col-md-4">
-                    <h3>Wind Gust</h3>
-                    <p>{data.wind.gust} meter/sec</p>
-                  </div>
-                </div>
-              </div>
-            ) : ('')}
 
-            {(typeof data.coord != "undefined") ? (
-              <div className="card-body">
-                <div className="row">
                   <div className="col-md-4">
-                    <h3>City Longitude Location</h3>
-                    <p>{data.coord.lon}</p>
+                      <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              City Longitude Location
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {data.coord.lon}
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
+
                   <div className="col-md-4">
-                    <h3>City Latitude Location</h3>
-                    <p>{data.coord.lat}</p>
+                      <Card className={classes.root}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="150"
+                            image={ss1}
+                            title="Contemplative Reptile"
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="h1">
+                              City Latitude Location
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                              {data.coord.lat}
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
                   </div>
+
+
                   
                 </div>
               </div>
@@ -128,3 +289,4 @@ function App() {
 }
 
 export default App;
+
