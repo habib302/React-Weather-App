@@ -12,7 +12,16 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import ss1 from './img/Screenshot_1.jpg';
+import ss1 from './img/img1.jpg';
+import ss2 from './img/img2.jpg';
+import ss3 from './img/img3.jpg';
+import ss4 from './img/img4.jpg';
+import ss5 from './img/img5.jpg';
+import ss6 from './img/img6.jpg';
+import ss7 from './img/img7.jpg';
+import ss8 from './img/img8.jpg';
+import ss9 from './img/img9.jpg';
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 350,
@@ -80,11 +89,9 @@ function App() {
                         />
                         <CardContent>
                           <Typography gutterBottom variant="h5" component="h1">
-                            City Name
+                            City Name: {data.name}
                           </Typography>
-                          <Typography variant="body2" color="textSecondary" component="p">
-                            {data.name}
-                          </Typography>
+                          
                         </CardContent>
                       </CardActionArea>
                     </Card>
@@ -96,16 +103,14 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss2}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h1">
-                              Temparature
+                              Temparature: {Math.round(data.main.temp)}&#8451;
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {Math.round(data.main.temp)} &#8451;
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
@@ -117,16 +122,15 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss3}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h1">
-                              Humidity
+                              Feels Like: {Math.round(data.main.feels_like)}&#8451;
+                              {/* Humidity: {data.main.humidity}% */}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {data.main.humidity} %
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
@@ -145,16 +149,14 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss4}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h1">
-                              Country code
+                              Country code: {data.sys.country}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {data.sys.country}
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
@@ -166,16 +168,15 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss5}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h1">
-                              Sunrise Time
+                              Humidity: {data.main.humidity}%
+                              {/* Sunrise Time: {data.sys.sunrise}UTC */}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {data.sys.sunrise} UTC
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
@@ -187,16 +188,15 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss6}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h1">
-                              Sunset Time
+                              Wind Speed: {data.wind.speed} m/sec
+                              {/* Sunset Time: {data.sys.sunset}UTC */}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {data.sys.sunset} UTC
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
@@ -206,7 +206,7 @@ function App() {
             ) : ('')}
 
 
-            {( (typeof data.wind != "undefined") && (typeof data.coord != "undefined") ) ? (
+            {( (typeof data.weather != "undefined") && (typeof data.coord != "undefined") ) ? (
               <div className="card-body">
                 <div className="row">
                   <div className="col-md-4">
@@ -216,16 +216,14 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss7}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h1">
-                              Wind Speed
+                              Cloudiness: {data.clouds.all}%
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {data.wind.speed} meter/sec
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
@@ -238,16 +236,14 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss8}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="h1">
-                              City Longitude Location
+                              City Longitude Loc: {data.coord.lon}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {data.coord.lon}
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
@@ -260,22 +256,18 @@ function App() {
                             component="img"
                             alt="Contemplative Reptile"
                             height="150"
-                            image={ss1}
+                            image={ss9}
                             title="Contemplative Reptile"
                           />
                           <CardContent>
-                            <Typography gutterBottom variant="h5" component="h1">
-                              City Latitude Location
+                            <Typography gutterBottom variant="h5" component="h2">
+                              City Latitude Loc: {data.coord.lat}
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                              {data.coord.lat}
-                            </Typography>
+                            
                           </CardContent>
                         </CardActionArea>
                       </Card>
                   </div>
-
-
                   
                 </div>
               </div>
