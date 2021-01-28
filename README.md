@@ -3,7 +3,7 @@
 ### `Features:`
 1. Current weather data is fetch from https://openweathermap.org/ using API KEY
 2. User must enter his/her City name
-3. User can see Current temparature,Humidity,Wind speed,Logitude & Latitude location etc.
+3. User can see Current temparature,Humidity,Wind speed,Longitude & Latitude location etc.
 
 ### `Online Demo`
 https://react-weather-app-using-only-hooks.netlify.app/ 
